@@ -32,7 +32,7 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <td>ID</td>
+                                <td>No</td>
                                 <td>Name</td>
                                 <td class="text-center">Actions</td>
                             </tr>
@@ -40,7 +40,7 @@
                         <tbody>
                             @foreach($siswa as $k)
                             <tr>
-                                <td>{{$k->id}}</td>
+                                <td>{{ $loop->index+1 }}</td>
                                 <td>{{$k->name}}</td>
                                 <td class="text-center">
                                     <a href="{{ route('siswa.edit',$k->id)}}" class="btn btn-primary">Edit</a>

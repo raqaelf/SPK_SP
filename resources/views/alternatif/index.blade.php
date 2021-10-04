@@ -32,7 +32,7 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <td>ID</td>
+                                <td>No</td>
                                 <td>Name</td>
                                 <td>Description</td>
                                 <td class="text-center">Actions</td>
@@ -41,7 +41,7 @@
                         <tbody>
                             @foreach($alternatif as $k)
                             <tr>
-                                <td>{{$k->id}}</td>
+                                <td>{{ $loop->index+1 }}</td>
                                 <td>{{$k->name}}</td>
                                 <td>{{$k->description}}</td>
                                 <td class="text-center">
