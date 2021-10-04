@@ -111,6 +111,9 @@ class AlternatifController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $alternatif = Alternatif::find($id);
+        $alternatif->delete();
+
+        return redirect('/alternatif')->with('success', 'Alternatif deleted!');
     }
 }

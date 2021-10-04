@@ -1,12 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('SAW') }}</div>
-                
+                <div class="card-header">{{ __('Hasil Perhitungan SAW') }}
+                    @if (Request::get('detail') != 1)
+                        <a class="btn btn-primary position-absolute" href="?detail=1" style="top: 5px;right: 5px;">Detail</a>
+                    @else
+                        <a class="btn btn-primary position-absolute" href="?detail=0" style="top: 5px;right: 5px;">Simple</a>
+                    @endif
+                </div>
                 <div class="card-body" style="margin: auto;">
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">
@@ -20,13 +25,13 @@
                             <tr style=" background: #f7f7f7; ">
                                 <td>Nama</td>
                                 @foreach($s->bobot as $b)
-                                <td>{{$b->name}}  ({{$b->type}})</td>
+                                <td>{{$b->name}}</td>
                                 @endforeach
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><b>{{$s->name}}</b></td>
+                                <td class="text-start"><b>{{$s->name}}</b></td>
                                 @foreach($s->bobot as $b)
                                 <td>{{$b->pivot->bobot}}</td>
                                 @endforeach
@@ -37,11 +42,12 @@
                                 <td>{{$bt}}</td>
                                 @endforeach
                             </tr>
+                            @if (Request::get('detail') == 1)
                             <!-- Alternatif -->
                             <tr style=" background: #f7f7f7; ">
                                 <td>Alternatif</td>
                                 @foreach($s->bobot as $b)
-                                <td>{{$b->name}}  ({{$b->type}})</td>
+                                <td>{{$b->name}}</td>
                                 @endforeach
                             </tr>
                             @foreach($alternatif as $a)
@@ -81,19 +87,32 @@
                                 @endforeach
                             </tr>
                             @endforeach
+                            @endif
                             <!-- Ranking -->
                             <tr style=" background: #f7f7f7; ">
                                 <td style="text-align: center;" colspan="{{Helper::colspan()}}">Recomendasi</td>
                             </tr>
                             @foreach(Helper::rankTransform($s->bobot,$alternatif) as $row)
                             <tr>
+                                <td>{{ $loop->index+1 }}</td>
+                                @if ($loop->first)
                                 @foreach($row as $col)
-                                <td>{{$col}}</td>
+                                    @if ($loop->first)
+                                    <td colspan="{{Helper::colspan()-2}}"><b>{{$col}}</b></td>
+                                    @else
+                                    <td>{{$col}}</td>
+                                    @endif
                                 @endforeach
+                                @else
+                                @foreach($row as $col)
+                                <td colspan="{{Helper::colspan()-2}}">{{$col}}</td>
+                                @endforeach
+                                @endif
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
+                    <span>*Rekomendasi ditandai dengan huruf tebal</span>
                     <br>
                     <br>
                     <br>

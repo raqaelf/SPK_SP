@@ -5,7 +5,23 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Kriteria') }}</div>
+                <div class="card-header">{{ __('Data Kriteria') }}</div>
+
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                    Berisi ukuran yang menjadi dasar penilaian atau penetapan dalam menentukan Strageti Pembelajaran 
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 mt-3">
+            <div class="card">
+                <div class="card-header">{{ __('Kriteria') }}
+                <a class="btn btn-primary position-absolute" href="{{route('kriteria.create')}}" style="top: 5px;right: 5px;">Create</a>
+                </div>
                 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,7 +29,6 @@
                         {{ session('status') }}
                     </div>
                     @endif
-                    <a class="btn btn-primary" href="{{route('kriteria.create')}}" >Create</a>
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -21,7 +36,7 @@
                                 <td>Name</td>
                                 <td>Description</td>
                                 <td>Type</td>
-                                <td colspan = 2>Actions</td>
+                                <td class="text-center">Actions</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -31,15 +46,16 @@
                                 <td>{{$k->name}}</td>
                                 <td>{{$k->description}}</td>
                                 <td>{{$k->type}}</td>
-                                <td>
+                                <td class="text-center">
                                     <a href="{{ route('kriteria.edit',$k->id)}}" class="btn btn-primary">Edit</a>
-                                </td>
-                                <td>
-                                    <form action="{{ route('kriteria.destroy', $k->id)}}" method="post">
+                                    <form class="d-inline" action="{{ route('kriteria.destroy', $k->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger" type="submit">Delete</button>
                                     </form>
+                                </td>
+                                <td>
+                                    
                                 </td>
                             </tr>
                             @endforeach

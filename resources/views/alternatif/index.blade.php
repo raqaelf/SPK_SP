@@ -5,22 +5,37 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Alternatif') }}</div>
-                
+                <div class="card-header">{{ __('Data Alternatif') }}</div>
+
                 <div class="card-body">
                     @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
                     @endif
-                    <a class="btn btn-primary" href="{{route('alternatif.create')}}" >Create</a>
+                    Berisi pilihan Strageti Pembelajaran
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 mt-3">
+            <div class="card">
+                <div class="card-header">{{ __('Alternatif') }}
+                <a class="btn btn-primary position-absolute" href="{{route('alternatif.create')}}" style="top: 5px;right: 5px;">Create</a>
+                </div>
+                
+                <div class="card-body">
+                @if(session()->has('message'))
+                    <div class="alert alert-success">
+                        {{ session()->get('message') }}
+                    </div>
+                @endif
                     <table class="table table-striped">
                         <thead>
                             <tr>
                                 <td>ID</td>
                                 <td>Name</td>
                                 <td>Description</td>
-                                <td colspan = 2>Actions</td>
+                                <td class="text-center">Actions</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -29,11 +44,9 @@
                                 <td>{{$k->id}}</td>
                                 <td>{{$k->name}}</td>
                                 <td>{{$k->description}}</td>
-                                <td>
+                                <td class="text-center">
                                     <a href="{{ route('alternatif.edit',$k->id)}}" class="btn btn-primary">Edit</a>
-                                </td>
-                                <td>
-                                    <form action="{{ route('alternatif.destroy', $k->id)}}" method="post">
+                                    <form class="d-inline" action="{{ route('alternatif.destroy', $k->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger" type="submit">Delete</button>

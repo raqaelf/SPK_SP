@@ -15,7 +15,7 @@ class Helper
         $sum = array_sum($listBobot);
         $listBobotPersen = array();
         foreach ($listBobot as $x){ 
-            array_push($listBobotPersen, $x/$sum);
+            array_push($listBobotPersen, number_format((float)$x/$sum, 3, '.', ''));
         }
         return $listBobotPersen;
     }
@@ -62,7 +62,7 @@ class Helper
                 } else {
                     $normalisasi = $d->bobot[$x]->pivot->bobot / $getMinMax[$x];
                 }
-                array_push($list, $normalisasi);
+                array_push($list, number_format((float)$normalisasi, 3, '.', ''));
             }
             array_push($listfull, $list);
         }
@@ -77,7 +77,7 @@ class Helper
             $listhasil = array();
             for ($x = 0; $x < $count; $x++) {
                 if ($x > 0){
-                    $hasil = $n[$x]*$getBobot[$x-1];
+                    $hasil = number_format((float)$n[$x]*$getBobot[$x-1], 3, '.', '');
                 } else {
                     $hasil = $n[$x];
                 }

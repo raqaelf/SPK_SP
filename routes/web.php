@@ -17,13 +17,11 @@ use App\Http\Controllers\SAWController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Auth::routes();
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('kriteria', KriteriaController::class);
 Route::resource('alternatif', AlternatifController::class);
 Route::resource('siswa', SiswaController::class);

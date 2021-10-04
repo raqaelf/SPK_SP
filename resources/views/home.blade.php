@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Selamat Datang !') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,10 +13,14 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    {{ __('You are logged in!') }}
+                    Sistem Penunjang Keputusan (SPK) Dengan Metode Simple Additive Weighting (SAW) Sebagai Penunjang Dalam Menentukan Strategi Pembelajaran
                 </div>
             </div>
         </div>
+        
+        
+        
+
     </div>
 </div>
 @endsection
