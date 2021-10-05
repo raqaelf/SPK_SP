@@ -50,7 +50,7 @@
                                         <input class="form-check-input" type="radio" name="bobot[{{$k->id}}][bobot]" id="bobot[{{$k->id}}][bobot]5" value="5">
                                         <label class="form-check-label" for="bobot[{{$k->id}}][bobot]5">5</label>
                                     </div>
-                                    </div>
+                                </div>
                         </div>
                         @endforeach
                         <input type="submit" class="btn btn-primary"></input>
