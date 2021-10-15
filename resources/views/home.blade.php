@@ -27,8 +27,8 @@
 
                 <div class="card-body">
                     <ol>
-                        <li>(Dapat dilewati dan menggunakan data default) <b>Mengisi Data Kriteria</b> : digunakan sebagai dasar penilaian atau penetapan dalam menentukan Strageti Pembelajaran </li>
-                        <li>(Dapat dilewati dan menggunakan data default) <b>Mengisi Data Alternatif</b> : daftar Strageti Pembelajaran yang akan digunakan</li>
+                        <li>(Dapat dilewati dan menggunakan data default) <b>Mengisi Data Kriteria</b> : digunakan sebagai dasar penilaian atau penetapan dalam menentukan Strategi Pembelajaran </li>
+                        <li>(Dapat dilewati dan menggunakan data default) <b>Mengisi Data Alternatif</b> : daftar Strategi Pembelajaran yang akan digunakan</li>
                         <li><b>Mengisi Data Siswa</b> : daftar siswa beserta nilai bobot dari setiap kriteria </li>
                         <li><b>Hasil Perhitungan</b> : Melihat hasil rekomendasi strategi pembelajaran pada setiap anak dengan metode Simple Additive Weighting </li>
                     </ol>
