@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    Berisi ukuran yang menjadi dasar penilaian atau penetapan dalam menentukan Strageti Pembelajaran 
+                    Berisi ukuran yang menjadi dasar penilaian atau penetapan dalam menentukan Strategi Pembelajaran 
                 </div>
             </div>
         </div>

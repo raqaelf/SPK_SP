@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    Berisi pilihan Strageti Pembelajaran
+                    Berisi pilihan Strategi Pembelajaran
                 </div>
             </div>
         </div>
